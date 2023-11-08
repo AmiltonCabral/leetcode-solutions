@@ -3,13 +3,12 @@ package main
 import "fmt"
 
 func removeDuplicates(nums []int) int {
-	k := len(nums)
-	j := 0
+	k := 0
 	actual := nums[0]
 	rep := 0
 
 	for i := 0; i < len(nums); i++ {
-		nums[j] = nums[i]
+		nums[k] = nums[i]
 
 		if nums[i] == actual {
 			rep++
@@ -19,9 +18,7 @@ func removeDuplicates(nums []int) int {
 		}
 
 		if rep < 3 {
-			j++
-		} else {
-			k--
+			k++
 		}
 
 	}
@@ -30,7 +27,7 @@ func removeDuplicates(nums []int) int {
 }
 
 func main() {
-	nums := []int{0, 0, 1, 1, 1, 1, 2, 3, 3}
+	nums := []int{1, 1, 1, 2, 2, 3}
 	k := removeDuplicates(nums)
 	fmt.Println(k, nums)
 }
